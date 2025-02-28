@@ -1,0 +1,430 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+  --primary: #000000;
+  --primary-foreground: #ffffff;
+  --secondary: #f3f3f3;
+  --secondary-foreground: #000000;
+  --border: #eaeaea;
+  --input: #f3f3f3;
+  --ring: #000000;
+  --radius: 0.75rem;
+  --header-height: 4rem;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] {
+  --background: #000000;
+  --foreground: #ffffff;
+  --card: #1a1a1a;
+  --card-foreground: #ffffff;
+  --popover: #1a1a1a;
+  --popover-foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: #000000;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #ffffff;
+  --border: #333333;
+  --input: #333333;
+  --ring: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #030303;
+    --foreground: #ffffff;
+    --card: #0f0f0f;
+    --card-foreground: #ffffff;
+    --popover: #0f0f0f;
+    --popover-foreground: #ffffff;
+    --primary: #ffffff;
+    --primary-foreground: #000000;
+    --secondary: #171717;
+    --secondary-foreground: #ffffff;
+    --border: #262626;
+    --input: #171717;
+    --ring: #404040;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-feature-settings: "rlig" 1, "calt" 1;
+  font-family: var(--font-geist-sans);
+  letter-spacing: -0.011rem;
+}
+
+/* Enhanced Vercel-style components */
+.vercel-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.vercel-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .vercel-card {
+  background: linear-gradient(145deg, var(--card) 0%, rgba(20, 20, 20, 0.8) 100%);
+}
+
+/* Sophisticated Button Styles */
+.vercel-button-primary,
+.vercel-button-secondary {
+  padding: 0.5rem 0.875rem;
+  height: 2.25rem;
+  min-width: 5rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.vercel-button-primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: var(--radius);
+  font-weight: 500;
+  height: 2.5rem;
+  padding: 0 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+  letter-spacing: -0.011rem;
+  box-shadow: var(--shadow-sm);
+  border: none;
+}
+
+.vercel-button-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.vercel-button-secondary {
+  background-color: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-weight: 500;
+  height: 2.5rem;
+  padding: 0 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+  letter-spacing: -0.011rem;
+}
+
+.dark .vercel-button-secondary {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.vercel-button-secondary:hover:not(:disabled) {
+  background-color: var(--secondary);
+  transform: translateY(-1px);
+}
+
+.vercel-input {
+  background-color: var(--input);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  border-radius: var(--radius);
+  height: 2.5rem;
+  padding: 0 0.875rem;
+  width: 100%;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+  letter-spacing: -0.011rem;
+  line-height: 1.5;
+}
+
+.dark .vercel-input {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.vercel-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(var(--primary), 0.1);
+}
+
+.dark .vercel-input:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+textarea.vercel-input {
+  height: auto;
+  min-height: 5rem;
+  padding: 0.75rem 0.875rem;
+}
+
+.section-spacing {
+  margin-bottom: 1rem;
+}
+
+.content-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .content-grid {
+    gap: 1rem;
+  }
+}
+
+/* Compact typography */
+h1 {
+  font-size: 1.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+h2 {
+  font-size: 1.25rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+h3 {
+  font-size: 1.125rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+p {
+  margin: 0;
+}
+
+.form-group {
+  margin-bottom: 0.75rem;
+}
+
+/* Compact spacing utilities */
+.space-y-6 {
+  margin-top: 0.75rem;
+}
+
+.gap-6 {
+  gap: 0.75rem;
+}
+
+.mb-6 {
+  margin-bottom: 0.75rem;
+}
+
+.p-6 {
+  padding: 0.75rem;
+}
+
+/* Beautiful Tab Styling */
+.tab-button {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+  opacity: 0.6;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+  letter-spacing: -0.011rem;
+  position: relative;
+}
+
+.tab-button.active {
+  opacity: 1;
+  border-color: var(--primary);
+}
+
+.dark .tab-button.active {
+  color: #60a5fa; /* blue-400 */
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.tab-button:hover:not(.active) {
+  opacity: 0.8;
+  background-color: var(--secondary);
+}
+
+.tab-button::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.2s ease;
+}
+
+.tab-button:hover:not(.active)::after {
+  width: 100%;
+}
+
+/* Beautiful typography */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.025em;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Vercel-style gradients and accents */
+.vercel-gradient-text {
+  background-image: linear-gradient(90deg, #535353, #b3b3b3);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.dark .vercel-gradient-text {
+  background-image: linear-gradient(90deg, #ffffff, #aaaaaa);
+}
+
+/* Vercel-style code */
+code {
+  font-family: var(--font-geist-mono);
+  font-size: 0.875rem;
+  background-color: var(--secondary);
+  color: var(--foreground);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+}
+
+/* Vercel-style layout helpers */
+.max-w-vercel {
+  max-width: 1200px;
+}
+
+/* Transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Sleek Badge */
+.vercel-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: -0.011rem;
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+/* Enhanced Table */
+.vercel-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.vercel-table th,
+.vercel-table td {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  letter-spacing: -0.011rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.vercel-table th {
+  font-weight: 500;
+  color: var(--foreground);
+  opacity: 0.7;
+}
+
+.vercel-table tr {
+  transition: background-color 0.15s ease;
+}
+
+.vercel-table tr:hover td {
+  background-color: var(--secondary);
+}
+
+/* Better Header */
+.vercel-header {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Footer Enhancement */
+.vercel-footer {
+  background-color: var(--background);
+  border-top: 1px solid var(--border);
+}
+
+/* Glow Effects */
+.glow-effect {
+  position: relative;
+}
+
+.dark .glow-effect::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.1), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Glassmorphism Effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Feature Card Enhancement */
+.feature-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border);
+  background: linear-gradient(145deg, var(--card) 0%, rgba(245, 245, 245, 0.8) 100%);
+}
+
+.dark .feature-card {
+  background: linear-gradient(145deg, var(--card) 0%, rgba(20, 20, 20, 0.8) 100%);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.dark .feature-card:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+}
